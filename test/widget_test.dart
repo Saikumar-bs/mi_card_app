@@ -37,7 +37,7 @@ testWidgets('To test text position', (WidgetTester tester) async {
     expect(positionfinder, findsOneWidget);
   });
 
-testWidgets('To test mailid', (WidgetTester tester) async {
+testWidgets('To test mail id', (WidgetTester tester) async {
     // Build our app and trigger a frame.
     await tester.pumpWidget(MyApp());
 
@@ -47,4 +47,19 @@ testWidgets('To test mailid', (WidgetTester tester) async {
     //verify the finder
     expect(mailfinder, findsOneWidget);
   });
+
+testWidgets('To test color and fontSize of text', (WidgetTester tester) async {
+    // Build our app and trigger a frame.
+    await tester.pumpWidget(MyApp());
+
+    // find the mail id.
+    final text = tester.widget<Text>(find.text("FLUTTER DEVELOPER"));
+
+    //verify the finder
+    expect(text.style.color, Colors.teal.shade100);
+    expect(text.style.fontSize, 20.0);
+
+});
+
+
 }
