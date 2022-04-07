@@ -3,27 +3,17 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mi_card/main.dart';
 
 void main() {
-  
-testWidgets('To test icons', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(MyApp());
-
-    // Verify that test icons exist.
-    expect(find.byIcon(Icons.phone), findsOneWidget);
-    expect(find.byIcon(Icons.email), findsOneWidget);
-    
-  });
-
+  group('To test text, font size and color', () {
 
 testWidgets('To test text name', (WidgetTester tester) async {
     // Build our app and trigger a frame.
     await tester.pumpWidget(MyApp());
 
     // find the text Sai Kumar Meesala.
-    final textfinder = find.text('Sai Kumar Meesala');
+    final text = find.text('Sai Kumar Meesala');
 
     //verify the finder
-    expect(textfinder, findsOneWidget);
+    expect(text, findsOneWidget);
   });
 
 testWidgets('To test text position', (WidgetTester tester) async {
@@ -31,10 +21,10 @@ testWidgets('To test text position', (WidgetTester tester) async {
     await tester.pumpWidget(MyApp());
 
     // find the text FLUTTER DEVELOPER.
-    final positionfinder = find.text('FLUTTER DEVELOPER');
+    final text = find.text('FLUTTER DEVELOPER');
 
     //verify the finder
-    expect(positionfinder, findsOneWidget);
+    expect(text, findsOneWidget);
   });
 
 testWidgets('To test mail id', (WidgetTester tester) async {
@@ -42,17 +32,17 @@ testWidgets('To test mail id', (WidgetTester tester) async {
     await tester.pumpWidget(MyApp());
 
     // find the mail id.
-    final mailfinder = find.text('saikumar@bluesapience.com');
+    final text = find.text('saikumar@bluesapience.com');
 
     //verify the finder
-    expect(mailfinder, findsOneWidget);
+    expect(text, findsOneWidget);
   });
 
 testWidgets('To test color and fontSize of text', (WidgetTester tester) async {
     // Build our app and trigger a frame.
     await tester.pumpWidget(MyApp());
 
-    // find the mail id.
+    // find the text.
     final text = tester.widget<Text>(find.text("FLUTTER DEVELOPER"));
 
     //verify the finder
@@ -60,6 +50,49 @@ testWidgets('To test color and fontSize of text', (WidgetTester tester) async {
     expect(text.style.fontSize, 20.0);
 
 });
+   });
+  
+  group("To test icons", () {
+
+testWidgets('To test icons', (WidgetTester tester) async {
+    // Build our app and trigger a frame.
+    await tester.pumpWidget(MyApp());
+
+    // Verify that test icons exist.
+    expect(find.byIcon(Icons.phone), findsOneWidget);
+    expect(find.byIcon(Icons.email), findsOneWidget);
+        
+  });
+
+testWidgets('To test color icon', (WidgetTester tester) async {
+    // Build our app and trigger a frame.
+    await tester.pumpWidget(MyApp());
+
+    //verify the finder
+    expect(find.byIcon(Icons.phone), IconThemeData(color: Colors.teal));
+});
+});
 
 
+testWidgets('finds scaffold using a Key', (WidgetTester tester) async {
+  // Define the test key.
+  const testKey = Key('K');
+
+  // Build a MaterialApp with the testKey.
+  await tester.pumpWidget(MaterialApp(key: testKey, home: Scaffold()));
+
+  // Find the MaterialApp widget using the testKey.
+  expect(find.byKey(testKey), findsOneWidget);
+});
+
+testWidgets('finds a circle avatar using a key', (WidgetTester tester) async {
+  // Define the test key.
+  const testKey = Key('C');
+
+  // Build a MaterialApp with the testKey.
+  await tester.pumpWidget(MaterialApp(key: testKey, home: CircleAvatar()));
+
+  // Find the MaterialApp widget using the testKey.
+  expect(find.byKey(testKey), findsNWidgets(1));
+});
 }
