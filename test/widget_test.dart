@@ -68,8 +68,10 @@ testWidgets('To test color icon', (WidgetTester tester) async {
     // Build our app and trigger a frame.
     await tester.pumpWidget(MyApp());
 
+    final Icon = tester.widget<ListTile>(find.byIcon(Icons.phone));
+
     //verify the finder
-    expect(find.byIcon(Icons.phone), IconThemeData(color: Colors.teal));
+    expect(IconThemeData, Colors.teal);
 });
 });
 
@@ -94,6 +96,16 @@ testWidgets('finds a circle avatar using a key', (WidgetTester tester) async {
 
   // Find the MaterialApp widget using the testKey.
   expect(find.byKey(testKey), findsNWidgets(1));
+});
+
+testWidgets('To test radius of circle avatar', (WidgetTester tester) async {
+  const childWidget = CircleAvatar(radius: 50.0,);
+
+  // Provide the childWidget to the Container.
+  await tester.pumpWidget(Container(child: CircleAvatar()));
+
+  // Search for the childWidget in the tree and verify it exists.
+  expect(find.byWidget(childWidget), findsOneWidget);
 });
 
 }

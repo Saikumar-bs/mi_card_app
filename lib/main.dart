@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
             child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            CircleAvatar(
+            CircleAvatar( 
               radius: 50.0,
               backgroundImage: AssetImage('images/meesala.jpg'),
             ),
