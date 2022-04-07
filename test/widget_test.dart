@@ -95,4 +95,5 @@ testWidgets('finds a circle avatar using a key', (WidgetTester tester) async {
   // Find the MaterialApp widget using the testKey.
   expect(find.byKey(testKey), findsNWidgets(1));
 });
+
 }
