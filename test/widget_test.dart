@@ -77,10 +77,10 @@ void main() {
     const testKey = Key('K');
 
     // Build a MaterialApp with the testKey.
-    await tester.pumpWidget(MaterialApp(key: testKey, home: Scaffold()));
+    await tester.pumpWidget(MaterialApp(key: Key('K')));
 
     // Find the MaterialApp widget using the testKey.
-    expect(find.byKey(testKey), findsOneWidget);
+    expect(find.byKey(Key('K')), findsOneWidget);
   });
 
   testWidgets('finds a circle avatar using a key', (WidgetTester tester) async {
@@ -88,10 +88,10 @@ void main() {
     const testKey = Key('C');
 
     // Build a MaterialApp with the testKey.
-    await tester.pumpWidget(MaterialApp(key: testKey, home: CircleAvatar()));
+    await tester.pumpWidget(MaterialApp(key: Key('C')));
 
     // Find the MaterialApp widget using the testKey.
-    expect(find.byKey(testKey), findsNWidgets(1));
+    expect(find.byKey(Key('C')), findsNWidgets(1));
   });
 
   testWidgets('To test radius of circle avatar', (WidgetTester tester) async {

@@ -5,18 +5,19 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        key: const Key('K'),
         backgroundColor: Colors.teal,
         body: SafeArea(
             child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            CircleAvatar( 
+            CircleAvatar(
+              key: const Key('C'),
               radius: 50.0,
               backgroundImage: AssetImage('images/meesala.jpg'),
             ),
@@ -69,8 +70,9 @@ class MyApp extends StatelessWidget {
                   title: Text(
                     'saikumar@bluesapience.com',
                     style: TextStyle(
-                        fontSize: 20.0,
-                        color: Colors.teal.shade900,),
+                      fontSize: 20.0,
+                      color: Colors.teal.shade900,
+                    ),
                   ),
                 ))
           ],
